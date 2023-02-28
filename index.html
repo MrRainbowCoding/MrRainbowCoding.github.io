@@ -1,110 +1,108 @@
 <!DOCTYPE html>
 <html>
 <head>
-      <title>Gaia BH1</title>
-      <style>
-            body {
-                  background-color: black;
-                  color: green;
-                  font-family: Arial, sans-serif;
-                  font-size: 18px;
-                  line-height: 1.5;
-                  margin: 0;
-                  padding: 0;
-            }
+<title>Gaia BH1</title>
+<style>
 
-            h1 {
-                  font-size: 36px;
-                  text-align: center;
-                  margin: 50px 0;
-            }
+body {
+background-color: black;
+color: green;
+font-family: arial, sans-serif;
+font-size: 18px;
+line-height: 1.5;
+margin: 0;
+padding: 0;
+}
 
-            p {
-                  margin: 25px 0;
-            }
+h1 {
+font-size: 36px;
+text-align: center;
+margin: 50px 0;
+}
 
-            element {
-                  opacity: 0;
-                  transition: opacity 1s ease-in-out;
-                  margin-bottom: 50px;
-            }
+p {
+margin: 25px 0;
+}
 
-            object {
-                  position: absolute;
-                  left: 0;
-                  top: 0;
-                  width: 50px;
-                  height: 50px;
-                  background-color: green;
-            }
+element {
+opacity: 0;
+transition: opacity 1s ease-in-out;
+margin-bottom: 50px;
+}
 
-            ball {
-                  position: absolute;
-                  bottom: 0;
-                  left: 50%;
-                  width: 50px;
-                  height: 50px;
-                  border-radius: 50%;
-                  background-color: green;
-            }
-      </style>
-</head>
-<body>
-      <h1>Gaia BH1</h1>
+object {
+position: absolute;
+left: 0;
+top: 0;
+width: 50px;
+height: 50px;
+background-color: green;
+}
 
-      <div id="element">
-            <p>Gaia BH1 is the closest known black hole to Earth.</p>
-      </div>
+.ball {
+position: absolute;
+bottom: 0;
+left: 50%;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+background-color: green;
+}
 
-      <div id="object"></div>
+</style>
+<h1>Gaia BH1</h1>
+<div id="element">
+  <p>Gaia BH1 is the closest known black hole to earth.</p>
+</div>
+<div id="object"></div>
+<div id="ball"></div>
+<script>
 
-      <div id="ball"></div>
+// fade in/out animation
+const element = document. Getelementbyid('element');
 
-      <script>
-            // Fade In/Out Animation
-            const element = document.getElementById('element');
+function fadeinout() {
+if (element. Style. Opacity === '0') {
+element. Style. Opacity = '1';
+} else {
+element. Style. Opacity = '0';
+}
+settimeout(fadeinout, 1000);
+}
 
-            function fadeInOut() {
-              if (element.style.opacity === '0') {
-                element.style.opacity = '1';
-              } else {
-                element.style.opacity = '0';
-              }
-              setTimeout(fadeInOut, 1000);
-            }
+fadeinout();
 
-            fadeInOut();
+// moving object animation
+const object = document. Getelementbyid('object');
+let position = 0;
 
-            // Moving Object Animation
-            const object = document.getElementById('object');
-            let position = 0;
+function moveobject() {
+position++;
+object. Style. Left = position + 'px';
+if (position >= window. Innerwidth) {
+position = 0;
+}
+requestanimationframe(moveobject);
+}
 
-            function moveObject() {
-              position++;
-              object.style.left = position + 'px';
-              if (position >= window.innerWidth) {
-                position = 0;
-              }
-              requestAnimationFrame(moveObject);
-            }
+moveobject();
 
-            moveObject();
+// bouncing ball animation
+const ball = document. Getelementbyid('ball');
+let position = 0;
+let direction = 1;
 
-            // Bouncing Ball Animation
-            const ball = document.getElementById('ball');
-            let position = 0;
-            let direction = 1;
+function bounceball() {
+position += direction;
+ball. Style. Bottom = position + 'px';
+if (position >= window. Innerheight - 50 || position <= 0) {
+direction *= -1;
+}
+requestanimationframe(bounceball);
+}
 
-            function bounceBall() {
-              position += direction;
-              ball.style.bottom = position + 'px';
-              if (position >= window.innerHeight - 50 || position <= 0) {
-                direction *= -1;
-              }
-              requestAnimationFrame(bounceBall);
-            }
+bounceball();
 
-            bounceBall();
-      </script>
+</script>
 </body>
 </html>
