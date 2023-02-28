@@ -1,52 +1,110 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: limegreen;
-}
+      <title>Gaia BH1</title>
+      <style>
+            body {
+                  background-color: black;
+                  color: green;
+                  font-family: Arial, sans-serif;
+                  font-size: 18px;
+                  line-height: 1.5;
+                  margin: 0;
+                  padding: 0;
+            }
 
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-}
+            h1 {
+                  font-size: 36px;
+                  text-align: center;
+                  margin: 50px 0;
+            }
 
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
+            p {
+                  margin: 25px 0;
+            }
 
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
+            #element {
+                  opacity: 0;
+                  transition: opacity 1s ease-in-out;
+                  margin-bottom: 50px;
+            }
 
-.topnav a.active {
-  background-color: #04AA6D;
-  color: white;
-}
-</style>
+            #object {
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                  width: 50px;
+                  height: 50px;
+                  background-color: green;
+            }
+
+            #ball {
+                  position: absolute;
+                  bottom: 0;
+                  left: 50%;
+                  width: 50px;
+                  height: 50px;
+                  border-radius: 50%;
+                  background-color: green;
+            }
+      </style>
 </head>
 <body>
-    <div class="topnav">
-        <a class="active" href="index">Home</a>
-    </div>
-    <br>
-    <br>
-    <br>
-<!--- The Page -->
-<h1>Gaia BH1</h1>
-<br>
-<br>
-<br>
-<h2>Facts</h2>
-</body>
-    </html>
+      <h1>Gaia BH1</h1>
 
+      <div id="element">
+            <p>Gaia BH1 is the closest known black hole to Earth.</p>
+      </div>
+
+      <div id="object"></div>
+
+      <div id="ball"></div>
+
+      <script>
+            // Fade In/Out Animation
+            const element = document.getElementById('element');
+
+            function fadeInOut() {
+              if (element.style.opacity === '0') {
+                element.style.opacity = '1';
+              } else {
+                element.style.opacity = '0';
+              }
+              setTimeout(fadeInOut, 1000);
+            }
+
+            fadeInOut();
+
+            // Moving Object Animation
+            const object = document.getElementById('object');
+            let position = 0;
+
+            function moveObject() {
+              position++;
+              object.style.left = position + 'px';
+              if (position >= window.innerWidth) {
+                position = 0;
+              }
+              requestAnimationFrame(moveObject);
+            }
+
+            moveObject();
+
+            // Bouncing Ball Animation
+            const ball = document.getElementById('ball');
+            let position = 0;
+            let direction = 1;
+
+            function bounceBall() {
+              position += direction;
+              ball.style.bottom = position + 'px';
+              if (position >= window.innerHeight - 50 || position <= 0) {
+                direction *= -1;
+              }
+              requestAnimationFrame(bounceBall);
+            }
+
+            bounceBall();
+      </script>
+</body>
+</html>
