@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Gaia BH1 - Chapter 1</title>
+<style>
+
+body {
+background-color: black;
+color: green;
+font-family: arial, sans-serif;
+font-size: 18px;
+line-height: 1.5;
+margin: 0;
+padding: 0;
+text-align: center;
+}
+
+h1 {
+font-size: 36px;
+text-align: center;
+margin: 50px 0;
+}
+
+p {
+margin: 25px 0;
+}
+
+element {
+opacity: 0;
+transition: opacity 1s ease-in-out;
+margin-bottom: 50px;
+}
+
+object {
+position: absolute;
+left: 0;
+top: 0;
+width: 50px;
+height: 50px;
+background-color: green;
+}
+
+ball {
+position: absolute;
+bottom: 0;
+left: 50%;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+background-color: green;
+}
+
+</style>
+</head>
+<body>
+    <div id="element">
+        <h1>Chapter 1: Introduction to Gala BH1</h1>
+        <img src="gbh1.png">
+        <p>Gaia BH1 is the closest black hole to Earth that scientists have ever discovered.</p>
+        <p>It is approximately three times closer to Earth than the previous record holder.</p>
+      
+      </div>
+      <div id="object"></div>
+      <div id="ball"></div>
+      <script>
+      
+      // fade in/out animation
+      const element = document. Getelementbyid('element');
+      
+      function fadeinout() {
+      if (element. Style. Opacity === '0') {
+      element. Style. Opacity = '1';
+      } else {
+      element. Style. Opacity = '0';
+      }
+      settimeout(fadeinout, 1000);
+      }
+      
+      fadeinout();
+      
+      // moving object animation
+      const object = document. Getelementbyid('object');
+      let position = 0;
+      
+      function moveobject() {
+      position++;
+      object. Style. Left = position + 'px';
+      if (position >= window. Innerwidth) {
+      position = 0;
+      }
+      requestanimationframe(moveobject);
+      }
+      
+      moveobject();
+      
+      // bouncing ball animation
+      const ball = document. Getelementbyid('ball');
+      let position = 0;
+      let direction = 1;
+      
+      function bounceball() {
+      position += direction;
+      ball. Style. Bottom = position + 'px';
+      if (position >= window. Innerheight - 50 || position <= 0) {
+      direction *= -1;
+      }
+      requestanimationframe(bounceball);
+      }
+      
+      bounceball();
+      
+      </script>
+      </body>
+      </html>
+</body>

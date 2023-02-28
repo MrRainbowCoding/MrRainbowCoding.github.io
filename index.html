@@ -12,6 +12,7 @@ font-size: 18px;
 line-height: 1.5;
 margin: 0;
 padding: 0;
+text-align: center;
 }
 
 h1 {
@@ -39,7 +40,7 @@ height: 50px;
 background-color: green;
 }
 
-.ball {
+ball {
 position: absolute;
 bottom: 0;
 left: 50%;
@@ -50,59 +51,12 @@ background-color: green;
 }
 
 </style>
+</head>
+<body>
 <h1>Gaia BH1</h1>
-<div id="element">
-  <p>Gaia BH1 is the closest known black hole to earth.</p>
-</div>
-<div id="object"></div>
-<div id="ball"></div>
-<script>
-
-// fade in/out animation
-const element = document. Getelementbyid('element');
-
-function fadeinout() {
-if (element. Style. Opacity === '0') {
-element. Style. Opacity = '1';
-} else {
-element. Style. Opacity = '0';
-}
-settimeout(fadeinout, 1000);
-}
-
-fadeinout();
-
-// moving object animation
-const object = document. Getelementbyid('object');
-let position = 0;
-
-function moveobject() {
-position++;
-object. Style. Left = position + 'px';
-if (position >= window. Innerwidth) {
-position = 0;
-}
-requestanimationframe(moveobject);
-}
-
-moveobject();
-
-// bouncing ball animation
-const ball = document. Getelementbyid('ball');
-let position = 0;
-let direction = 1;
-
-function bounceball() {
-position += direction;
-ball. Style. Bottom = position + 'px';
-if (position >= window. Innerheight - 50 || position <= 0) {
-direction *= -1;
-}
-requestanimationframe(bounceball);
-}
-
-bounceball();
-
-</script>
+<img src="gbh1.png">
+<button onclick="window.location.href='chapter-1.html';">Go to Chapter 1</button>
+<button onclick="window.location.href='chapter-1.html';">Go to Chapter 1</button>
+<br>
 </body>
 </html>
