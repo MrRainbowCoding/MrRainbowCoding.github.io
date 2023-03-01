@@ -54,11 +54,108 @@ background-color: green;
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap');
 /* demo setup */
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box }
-body { min-height: 100vh; padding: 2rem; background-color: #EBEBEB; font-family: 'Open Sans', sans-serif; }
-body > * + *  { margin-top: 1.5em }
-h1{ text-align: center; font-weight: 800; color: rgb(6 6 6); text-transform: uppercase }
-blockquote { max-width: 25rem; margin-inline: auto }
+body {
+background-color: black;
+color: green;
+font-family: arial, sans-serif;
+font-size: 18px;
+line-height: 1.5;
+margin: 0;
+padding: 0;
+text-align: center;
+}
+
+h1 {
+font-size: 36px;
+text-align: center;
+margin: 50px 0;
+}
+
+h2 {
+font-size: 28px;
+text-align: center;
+margin: 50px 0;
+}
+
+p {
+margin: 25px 0;
+}
+
+element {
+opacity: 0;
+transition: opacity 1s ease-in-out;
+margin-bottom: 50px;
+}
+
+object {
+position: absolute;
+left: 0;
+top: 0;
+width: 50px;
+height: 50px;
+background-color: green;
+}
+
+ball {
+position: absolute;
+bottom: 0;
+left: 50%;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+background-color: green;
+}
+/* CSS */
+.button-3 {
+  appearance: none;
+  background-color: #2ea44f;
+  border: 1px solid rgba(27, 31, 35, .15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button-3:focus:not(:focus-visible):not(.focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
+
+.button-3:hover {
+  background-color: #2c974b;
+}
+
+.button-3:focus {
+  box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+  outline: none;
+}
+
+.button-3:disabled {
+  background-color: #94d3a2;
+  border-color: rgba(27, 31, 35, .1);
+  color: rgba(255, 255, 255, .8);
+  cursor: default;
+}
+
+.button-3:active {
+  background-color: #298e46;
+  box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+}
 
 /* blockquote card colors */
 blockquote.q-card-color-1{
@@ -138,4 +235,11 @@ blockquote.q-card > .author::before{
   <img src="gbh1.png">
    <p>Gaia BH1 is a binary system consisting of a G-type main-sequence star and a likely stellar-mass black hole, located about 1,560 light-years away from the Solar System in the constellation of Ophiuchus.</p>
    <h2>Is Gaia BH1 a threat to Earth?</h2>
+   <img src="threatornothreat.png">
+   <br>
+   <p>At a distance of 1,600 light years away, the black hole poses no danger to humanity; so, you can still sleep soundly at night.</p>
+   <br>
+   <br>
+   <button class="button-3" role="button" onclick="window.location.href='chapter-3.html';">Next Page</button>
+   <button class="button-3" role="button" onclick="window.location.href='drawing.html';">Drawing</button>
 </body>

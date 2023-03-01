@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Gaia BH1 - Page 2/Chapter 1</title>
+<title>Gaia BH1 - Page 3/Chapter 2</title>
 <style>
 
 body {
@@ -155,7 +155,6 @@ background-color: green;
   background-color: #298e46;
   box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
 }
-
 /* blockquote card colors */
 blockquote.q-card-color-1{
   --accent-color: rgb(32 32 54);
@@ -228,71 +227,6 @@ blockquote.q-card > .author::before{
   content: "- "
 }
 </style>
-</head>
 <body>
-    <div id="element">
-        <h1>Chapter 1: Introduction to Gala BH1</h1>
-        <img src="gbh1.png">
-        <p>Gaia BH1 is the closest black hole to Earth that scientists have ever discovered.</p>
-        <p>It is approximately three times closer to Earth than the previous record holder.</p>
-        <p>By looking at the behavior of a star near the black hole, astronomers could determine the black hole was there, despite never seeing it directly.</p>
-        <blockquote class="q-card q-card-color-1">
-            <div class="content">Unless they are belching up stars or rippling spacetime in a partnered dance, light-trapping black holes are notoriously difficult to spot.</div>
-            <div class='author'>science.org</div>
-          </blockquote>
-      </div>
-      <div id="object"></div>
-      <div id="ball"></div>
-      <script>
-      
-      // fade in/out animation
-      const element = document. Getelementbyid('element');
-      
-      function fadeinout() {
-      if (element. Style. Opacity === '0') {
-      element. Style. Opacity = '1';
-      } else {
-      element. Style. Opacity = '0';
-      }
-      settimeout(fadeinout, 1000);
-      }
-      
-      fadeinout();
-      
-      // moving object animation
-      const object = document. Getelementbyid('object');
-      let position = 0;
-      
-      function moveobject() {
-      position++;
-      object. Style. Left = position + 'px';
-      if (position >= window. Innerwidth) {
-      position = 0;
-      }
-      requestanimationframe(moveobject);
-      }
-      
-      moveobject();
-      
-      // bouncing ball animation
-      const ball = document. Getelementbyid('ball');
-      let position = 0;
-      let direction = 1;
-      
-      function bounceball() {
-      position += direction;
-      ball. Style. Bottom = position + 'px';
-      if (position >= window. Innerheight - 50 || position <= 0) {
-      direction *= -1;
-      }
-      requestanimationframe(bounceball);
-      }
-      
-      bounceball();
-      
-      </script>
-      <button class="button-3" role="button" onclick="window.location.href='chapter-2.html';">Next Page</button>
-      <button class="button-3" role="button" onclick="window.location.href='drawing.html';">Drawing</button>
-      </body>
-      </html>
+    <h1>Not Just Yet.</h1>
 </body>
