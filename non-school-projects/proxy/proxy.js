@@ -1,0 +1,1 @@
+window.location("https://rainbowbrowsing-proxy.glitch.me/")
