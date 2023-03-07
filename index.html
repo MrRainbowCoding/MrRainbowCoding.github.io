@@ -1,10 +1,58 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Gaia BH1</title>
-<style>
+    <head>
+        <title>MrRainbowCoding - Choosing</title>
+        <style>
+            body {
+background-color: black;
+color: green;
+font-family: arial, sans-serif;
+font-size: 18px;
+line-height: 1.5;
+margin: 0;
+padding: 0;
+text-align: center;
+}
 
-body {
+h1 {
+font-size: 36px;
+text-align: center;
+margin: 50px 0;
+}
+
+p {
+margin: 25px 0;
+}
+
+element {
+opacity: 0;
+transition: opacity 1s ease-in-out;
+margin-bottom: 50px;
+}
+
+object {
+position: absolute;
+left: 0;
+top: 0;
+width: 50px;
+height: 50px;
+background-color: green;
+}
+
+ball {
+position: absolute;
+bottom: 0;
+left: 50%;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+background-color: green;
+}
+
+</style>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap');
+    body {
 background-color: black;
 color: green;
 font-family: arial, sans-serif;
@@ -106,16 +154,82 @@ background-color: green;
   background-color: #298e46;
   box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
 }
+
+/* blockquote card colors */
+blockquote.q-card-color-1{
+  --accent-color: rgb(32 32 54);
+  --bg-color: rgb(30 145 254);
+  --dot-color: rgb(255 255 255 / .35);
+  --text-color: rgb(243 243 243);
+  --text-color-author: rgb(243 243 243);
+}
+
+blockquote.q-card-color-2{
+  --accent-color: rgb(243 243 243);
+  --bg-color: rgb(33 29 30);
+  --dot-color: rgb(255 255 255 / .125);
+  --text-color: rgb(243 243 243);
+  --text-color-author: rgb(33 29 30);
+}
+
+blockquote.q-card-color-3{
+  --accent-color: rgb(30 145 254);
+  --bg-color: rgb(32 32 54);
+  --dot-color: rgb(255 255 255 / .125);
+  --text-color: rgb(243 243 243);
+  --text-color-author: rgb(243 243 243);
+}
+
+/* blockquote card setup*/
+blockquote.q-card{
+  --padding: 1rem;
+  padding: var(--padding);
+  color: var(--text-color, black);
+  font-weight: 600;
+  background-color: var(--bg-color, white);
+  display: grid;
+  gap: 1rem;
+  background-image: radial-gradient( circle, var(--dot-color, rgb(0 0 0 / .125)) calc(25% - 1px), transparent 25% );
+  background-size: 0.5rem 0.5rem;
+  border-radius: 0.25rem;
+  box-shadow: 0.5rem 0.5rem 2rem rgb(0 0 0 / .5)
+  
+}
+blockquote.q-card::before{
+  --qHeight: 4rem;
+  content: "";
+  margin-left: calc(var(--padding) * -1);
+  margin-top: calc(var(--padding) * -1);
+  height: var(--qHeight);
+  width: calc(var(--qHeight) * 1.1);
+  background-image:
+    radial-gradient(
+      circle at bottom right,
+      transparent calc(var(--qHeight) / 4 - 1px),
+      var(--accent-color, black) calc(var(--qHeight) / 4) calc(var(--qHeight) / 2), 
+      transparent calc(var(--qHeight) / 2 + 1px)
+    ),
+    linear-gradient(var(--accent-color, black), var(--accent-color, black));
+  background-size: calc(var(--qHeight) / 2) calc(var(--qHeight) / 2);
+  background-position: top left, bottom left;
+  background-repeat: space no-repeat
+}
+
+blockquote.q-card > .author{
+  color: var(--text-color-author, white);
+  background-color: var(--accent-color, black);
+  justify-self: end;
+  font-size: 0.75em;  
+  padding: 0.5em 1em;
+  border-radius: 0.25rem;
+}
+blockquote.q-card > .author::before{
+  content: "- "
+}
 </style>
-</head>
-<body>
-<h1>Gaia BH1</h1>
-<h2>by Alex, Damian, and Junior</h2>
-<h3>Coding and some research: Alex<br>Research: Damian<br>Site Theme: Junior<br>Theme coded by: ChatGPT</h3>
-<img src="gbh1.png">
-<br>
-<button class="button-3" role="button" onclick="window.location.href='chapter-1.html';">Go to 1st Page</button>
-<button class="button-3" role="button" onclick="window.location.href='drawing.html';">Drawing</button>
-<br>
-</body>
+    </head>
+    <body>
+        <h1>Which one would you like to choose?</h1>
+        <a href="gaia-bh1/index.html">Gaia BH1</a><p> </p><a href="storyboard/index.html">Storyboard</a>
+    </body>
 </html>
