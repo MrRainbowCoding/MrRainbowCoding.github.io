@@ -2,5 +2,233 @@
 <html>
     <head>
         <title>Storyboard Home</title>
+        <style>
+            body {
+background-color: black;
+color: green;
+font-family: arial, sans-serif;
+font-size: 18px;
+line-height: 1.5;
+margin: 0;
+padding: 0;
+text-align: center;
+}
+
+h1 {
+font-size: 36px;
+text-align: center;
+margin: 50px 0;
+}
+
+p {
+margin: 25px 0;
+}
+
+element {
+opacity: 0;
+transition: opacity 1s ease-in-out;
+margin-bottom: 50px;
+}
+
+object {
+position: absolute;
+left: 0;
+top: 0;
+width: 50px;
+height: 50px;
+background-color: green;
+}
+
+ball {
+position: absolute;
+bottom: 0;
+left: 50%;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+background-color: green;
+}
+
+</style>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap');
+    body {
+background-color: black;
+color: green;
+font-family: arial, sans-serif;
+font-size: 18px;
+line-height: 1.5;
+margin: 0;
+padding: 0;
+text-align: center;
+}
+
+h1 {
+font-size: 36px;
+text-align: center;
+margin: 50px 0;
+}
+
+h2 {
+font-size: 28px;
+text-align: center;
+margin: 50px 0;
+}
+
+p {
+margin: 25px 0;
+}
+
+element {
+opacity: 0;
+transition: opacity 1s ease-in-out;
+margin-bottom: 50px;
+}
+
+object {
+position: absolute;
+left: 0;
+top: 0;
+width: 50px;
+height: 50px;
+background-color: green;
+}
+
+ball {
+position: absolute;
+bottom: 0;
+left: 50%;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+background-color: green;
+}
+/* CSS */
+.button-3 {
+  appearance: none;
+  background-color: #2ea44f;
+  border: 1px solid rgba(27, 31, 35, .15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button-3:focus:not(:focus-visible):not(.focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
+
+.button-3:hover {
+  background-color: #2c974b;
+}
+
+.button-3:focus {
+  box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+  outline: none;
+}
+
+.button-3:disabled {
+  background-color: #94d3a2;
+  border-color: rgba(27, 31, 35, .1);
+  color: rgba(255, 255, 255, .8);
+  cursor: default;
+}
+
+.button-3:active {
+  background-color: #298e46;
+  box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+}
+
+/* blockquote card colors */
+blockquote.q-card-color-1{
+  --accent-color: rgb(32 32 54);
+  --bg-color: rgb(30 145 254);
+  --dot-color: rgb(255 255 255 / .35);
+  --text-color: rgb(243 243 243);
+  --text-color-author: rgb(243 243 243);
+}
+
+blockquote.q-card-color-2{
+  --accent-color: rgb(243 243 243);
+  --bg-color: rgb(33 29 30);
+  --dot-color: rgb(255 255 255 / .125);
+  --text-color: rgb(243 243 243);
+  --text-color-author: rgb(33 29 30);
+}
+
+blockquote.q-card-color-3{
+  --accent-color: rgb(30 145 254);
+  --bg-color: rgb(32 32 54);
+  --dot-color: rgb(255 255 255 / .125);
+  --text-color: rgb(243 243 243);
+  --text-color-author: rgb(243 243 243);
+}
+
+/* blockquote card setup*/
+blockquote.q-card{
+  --padding: 1rem;
+  padding: var(--padding);
+  color: var(--text-color, black);
+  font-weight: 600;
+  background-color: var(--bg-color, white);
+  display: grid;
+  gap: 1rem;
+  background-image: radial-gradient( circle, var(--dot-color, rgb(0 0 0 / .125)) calc(25% - 1px), transparent 25% );
+  background-size: 0.5rem 0.5rem;
+  border-radius: 0.25rem;
+  box-shadow: 0.5rem 0.5rem 2rem rgb(0 0 0 / .5)
+  
+}
+blockquote.q-card::before{
+  --qHeight: 4rem;
+  content: "";
+  margin-left: calc(var(--padding) * -1);
+  margin-top: calc(var(--padding) * -1);
+  height: var(--qHeight);
+  width: calc(var(--qHeight) * 1.1);
+  background-image:
+    radial-gradient(
+      circle at bottom right,
+      transparent calc(var(--qHeight) / 4 - 1px),
+      var(--accent-color, black) calc(var(--qHeight) / 4) calc(var(--qHeight) / 2), 
+      transparent calc(var(--qHeight) / 2 + 1px)
+    ),
+    linear-gradient(var(--accent-color, black), var(--accent-color, black));
+  background-size: calc(var(--qHeight) / 2) calc(var(--qHeight) / 2);
+  background-position: top left, bottom left;
+  background-repeat: space no-repeat
+}
+
+blockquote.q-card > .author{
+  color: var(--text-color-author, white);
+  background-color: var(--accent-color, black);
+  justify-self: end;
+  font-size: 0.75em;  
+  padding: 0.5em 1em;
+  border-radius: 0.25rem;
+}
+blockquote.q-card > .author::before{
+  content: "- "
+}
+</style>
     </head>
+    <body>
+        <h1>Storyboard</h1>
+    </body>
 </html>
