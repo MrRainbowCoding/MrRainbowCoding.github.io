@@ -58,6 +58,7 @@
                 message.innerText = data.message;
                 messages.appendChild(message);
                 chatbot.reply(data);
+                bot.startConversation(data);
             }
         });
         let messages = document.getElementById('messages');
