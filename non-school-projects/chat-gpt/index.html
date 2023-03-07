@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot using ChatGPT</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background: #fefefe;
+            margin: 0;
+            padding: 0;
+        }
+
+        #chatbot {
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fefefe;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        #chatbot .message {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            background: #fefefe;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        #chatbot .message.user {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="chatbot">
+        <div id="messages" class="message-container"></div>
+        <form action="#" onsubmit="sendMessage(); return false;">
+            <input type="text" id="message" placeholder="Type your message...">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chatgpt@1.1.1/dist/chatgpt.min.js"></script>
+    <script>
+        let chatbot = new ChatGPT({
+            modelName: 'model_name',
+            modelVersion: 'model_version',
+            token: 'sk-lzyg2A2B848SN7M2hRFPT3BlbkFJOB2DhBlwMFDEpIIZCHtkV',
+            modelType: 'chatbot',
+            onReady: (bot) => {
+                console.log('Chatbot ready!');
+            },
+            onMessage: (data) => {
+                let message = document.createElement('div');
+                message.classList.add('message');
+                message.innerText = data.message;
+                messages.appendChild(message);
+            }
+        });
+        let messages = document.getElementById('messages');
+        function sendMessage() {
+            let message = document.getElementById('message');
+            let messageElement = document.createElement('div');
+            messageElement.classList.add('message');
+            messageElement.classList.add('user');
+            messageElement.innerText = message.value;
+            messages.appendChild(messageElement);
+            chatbot.sendMessage(message.value);
+            message.value = '';
+        }
+    </script>
+</body>
+</html>
