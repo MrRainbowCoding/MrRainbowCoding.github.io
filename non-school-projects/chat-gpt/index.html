@@ -57,6 +57,7 @@
                 message.classList.add('message');
                 message.innerText = data.message;
                 messages.appendChild(message);
+                chatbot.reply(data);
             }
         });
         let messages = document.getElementById('messages');
