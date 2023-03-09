@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RainbowEditor</title>
+    <meta charset="utf-8">
+    <style>
+        #editor {
+            width:500px;
+            min-height:500px;
+            border:1px solid #ccc;
+            padding:5px;
+            margin: 10px;
+        }
+        
+        #preview {
+            width:100%;
+            min-height:500px;
+            border:1px solid #ccc;
+            padding:5px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="editor-box">
+        <h1>HTML Code Editor</h1>
+        <textarea id="editor" name="content"></textarea>
+        <button type="submit" onclick="formatHTML()"> Auto Format</button>
+    </div>
+    <div id="preview-box">
+        <h1>Preview</h1>
+        <div id="preview">
+            <!-- Content is displayed here -->
+        </div>
+    </div>
+
+    <script>
+    function formatHTML() {
+        var htmlCode = document.getElementById('editor').value;
+        var indentSize = 2;
+        var tabAsSpaces = '  ';
+        var div = document.createElement('div');
+        div.innerHTML = htmlCode.trim();
+        format(div, indentSize, tabAsSpaces);
+        // Preview the formatted code
+        document.getElementById("preview").innerHTML = div.innerHTML;
+    }
+
+    function format(node, indentSize, tabAsSpaces) {
+
+    var indentedText = '';
+    var i;
+
+    // tab the beginning of the node
+    for (i = 0; i < indentSize; i++) {
+        indentedText += tabAsSpaces;
+    }
+
+    // handle text nodes
+    if (node.nodeType === 3) {
+        // only show text if not a block
+        if (node.parentElement.nodeName.toLowerCase() !== 'pre') {
+            return indentedText + node.nodeValue.trim() + '\n';
+        } else return node.nodeValue;
+    }
+
+    if (node.nodeType !== 1) return '';
+
+    var nodeName = node.nodeName.toLowerCase();
+    var html = indentedText + '<' + nodeName;
+    var attributes = node.attributes;
+
+    for (i = 0; i < attributes.length; i++) {
+        var attribute = attributes[i];
+        html += ' ' + attribute.name + '="' + attribute.value + '"';
+    }
+
+    html += '>\n';
+
+    var childNodes = node.childNodes;
+    if (childNodes) {
+
+        for (i = 0; i < childNodes.length; i++) {
+
+            var childNode = childNodes[i];
+            if (childNode.nodeType === 3) { // text
+                // handle text nodes
+                html += format(childNode, indentSize, tabAsSpaces);
+            }
+            else if (childNode.nodeType === 1) { // elements
+                html += format(childNode, indentSize + 1, tabAsSpaces);
+            }
+
+        }
+
+    }
+
+    return html + indentedText + '</' + nodeName + '>\n';
+
+}
+    </script>
+
+</body>
+</html>
