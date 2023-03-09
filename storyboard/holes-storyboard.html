@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storyboard Main</title>
+    <style>
+        .main_container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+        }
+        .storyboard {
+            border-radius: 5px;
+            margin: 1rem;
+            box-shadow: 5px 10px 20px rgba(0,0,0,0.5);
+            position: relative;
+            padding: 1rem 0;
+            background: #fff;
+            padding: 0 4rem;
+        }
+        .storyboard::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            border-top: 3px solid #000;
+            background: #b3b3b3;
+            height: 1px;
+            width: 100%;
+        }
+        .storyboard__item {
+            display: grid;
+            margin-top: 4rem;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 1rem;
+        }
+        .storyboard__item > div {
+            text-align: center;
+            background: #ffec16;
+            color: #000;
+            padding: 1rem 2rem;
+            position: relative;
+            border-radius: 5px;
+        }
+        .storyboard__item > div::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-top: 5px solid #000;
+            background: #b3b3b3;
+            width: 100%;
+            height: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main_container">
+        <div class="storyboard">
+            <div class="storyboard__item">
+                <div>
+                    Scene 1
+                </div>
+                <div>
+                    Scene 2
+                </div>
+                <div>
+                    Scene 3
+                </div>
+            </div>
+            <div class="storyboard__item">
+                <div>
+                    Scene 4
+                </div>
+                <div>
+                    Scene 5
+                </div>
+                <div>
+                    Scene 6
+                </div>
+            </div>
+            <div class="storyboard__item">
+                <div>
+                    Scene 7
+                </div>
+                <div>
+                    Scene 8
+                </div>
+                <div>
+                    Scene 9
+                </div>
+            </div>
+            <div class="storyboard__item">
+                <div>
+                    Scene 10
+                </div>
+                <div>
+                    Scene 11
+                </div>
+                <div>
+                    Scene 12
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Add your scripting below
+    </script>
+</body>
+</html>
