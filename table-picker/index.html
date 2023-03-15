@@ -14,6 +14,16 @@
     table{
       border: 1px solid black;
     }
+    .refresh {
+      background-color: red;
+      font-size: medium;
+      border-style: hidden;
+    }
+    .generate {
+      background-color: lime;
+      font-size: medium;
+      border-style: hidden;
+    }
   </style>
   <style>
     body {
@@ -41,12 +51,29 @@
       document.getElementById("table-container").innerHTML += tableHTML;
     }
   </script>
+  <script>
+    window.addEventListener("beforeunload", function (e) {
+        var confirmationMessage = "Are you sure you want to leave this page?";
+        (e || window.event).returnValue = confirmationMessage; 
+        if (confirm(confirmationMessage)) {
+            window.location = document.URL;
+        } else {
+            window.location = "https://www.currentpage.com";
+            return false;
+        } 
+        return false;
+    });
+</script>
 </head>
 
 <body>
   <div id="table-container"></div>
-  <button onclick="getRandomTable()">Generate Random Table</button>
-  <button onclick="window.location.reload(true);">Restart</button>
+  <br>
+  <br>
+  <button class="generate" onclick="getRandomTable()">Generate Random Table</button>
+  <br>
+  <br>
+  <button class="refresh"onclick="window.location.reload(true);">Restart</button>
 </body>
 
 </html>
