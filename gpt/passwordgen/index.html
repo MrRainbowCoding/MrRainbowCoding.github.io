@@ -1,0 +1,34 @@
+Code ChatGPT into HTML with a place to put an API key and a starting prompt. This will be a password generator but keep the prompt blank.
+
+<html>
+
+<head>
+  <title>Password Generator</title>
+</head>
+
+<body>
+  <h1>Password Generator</h1>
+  <form method="post">
+    <button type="submit">Generate Password</button>
+  </form>
+  
+  <div>
+    <h2>Generated Password:</h2>
+    <span id="chatGPToutput"></span>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chat-gpt@latest/dist/chat-gpt.min.js"></script>
+  <script>
+    async function generatePassword() {
+      const apiKey = "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"
+      const chatGPT = new ChatGPT(apiKey);
+  
+      const prompt = 'I want you to act as a password generator for individuals in need of a secure password. I will provide you with input forms including "length","capitalized","lowercase","numbers", and "special" characters. Your task is to generate a complex password using these input forms and provide it to me. Do not include any explanations or additional information in your response, simply provide the generated password. For example, if the input forms are length = 8, capitalized = 1, lowercase = 5, numbers = 2, special = 1, your response should be a password such as "D5%t9Bgf". Now generate a password based on those instructions.';
+      const { text } = await chatGPT.generateText(prompt);
+  
+      document.getElementById('chatGPToutput').innerText = text;
+    }
+  </script>
+</body>
+
+</html>
