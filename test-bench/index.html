@@ -7,19 +7,19 @@
 </head>
 
 
-<form action="">
+<form action="createApp">
   <h3>Create a Chrome Desktop App</h3>
   <div>
     <label>Name:</label>
-    <input type="text" name="name" />
+    <input type="text" id="appname"name="name" />
   </div>
   <div>
     <label>URL:</label>
-    <input type="url" name="url" />
+    <input type="url" id="url" name="url" />
   </div>
   <div>
     <label>Icon:</label>
-    <input type="file" name="icon" />
+    <input type="file" id="icon" name="icon" />
   </div>
   <div>
     <label>Open as window:</label>
@@ -29,3 +29,23 @@
     <button type="submit">Create App</button>
   </div>
 </form>
+
+<script>
+  var AppName = document.getElementById(appname);
+  var url = document.getElementById(url);
+  var file = document.getElementById(icon);
+
+// Create a shortcut for a chrome application
+var createChromeAppShortcut = function(appName, url) {
+  var appShortcut = {
+    "name": AppName,
+    "url": url,
+    "type": "chrome_url_override",
+    "description": "Shortcut to " + appName
+  }
+}
+  
+  chrome.management.createAppShortcut(appShortcut, function() {
+    console.log("Successfully created a shortcut for " + appName + "!");
+  }
+</script>
