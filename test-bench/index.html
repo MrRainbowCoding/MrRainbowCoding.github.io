@@ -5,47 +5,22 @@
 <head>
     <title>Chrome Desktop Shortcut Generator</title>
 </head>
-
-
-<form action="createApp">
-  <h3>Create a Chrome Desktop App</h3>
-  <div>
-    <label>Name:</label>
-    <input type="text" id="appname"name="name" />
-  </div>
-  <div>
-    <label>URL:</label>
-    <input type="url" id="url" name="url" />
-  </div>
-  <div>
-    <label>Icon:</label>
-    <input type="file" id="icon" name="icon" />
-  </div>
-  <div>
-    <label>Open as window:</label>
-    <input type="checkbox" name="asWindow" />
-  </div>
   <div>
     <button onclick="createChromeAppShortcut">Create App</button>
   </div>
-</form>
 
 <script>
-  var AppName = document.getElementById(appname);
-  var url = document.getElementById(url);
-  var file = document.getElementById(icon);
-
 // Create a shortcut for a chrome application
-var createChromeAppShortcut = function(appName, url) {
+function createChromeAppShortcut {
   var appShortcut = {
-    "name": AppName,
-    "url": url,
+    "name": input("What is the app name?"),
+    "url": input("What is the app URL?"),
     "type": "chrome_url_override",
     "description": "Shortcut to " + appName
-  }
-}
+  },
   
   chrome.management.createAppShortcut(appShortcut, function() {
     console.log("Successfully created a shortcut for " + appName + "!");
   }
+}
 </script>
