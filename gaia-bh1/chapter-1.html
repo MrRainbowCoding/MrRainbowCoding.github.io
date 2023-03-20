@@ -241,57 +241,6 @@ blockquote.q-card > .author::before{
             <div class="content">Unless they are belching up stars or rippling spacetime in a partnered dance, light-trapping black holes are notoriously difficult to spot.</div>
             <div class='author'>science.org</div>
           </blockquote>
-      </div>
-      <div id="object"></div>
-      <div id="ball"></div>
-      <script>
-      
-      // fade in/out animation
-      const element = document. Getelementbyid('element');
-      
-      function fadeinout() {
-      if (element. Style. Opacity === '0') {
-      element. Style. Opacity = '1';
-      } else {
-      element. Style. Opacity = '0';
-      }
-      settimeout(fadeinout, 1000);
-      }
-      
-      fadeinout();
-      
-      // moving object animation
-      const object = document. Getelementbyid('object');
-      let position = 0;
-      
-      function moveobject() {
-      position++;
-      object. Style. Left = position + 'px';
-      if (position >= window. Innerwidth) {
-      position = 0;
-      }
-      requestanimationframe(moveobject);
-      }
-      
-      moveobject();
-      
-      // bouncing ball animation
-      const ball = document. Getelementbyid('ball');
-      let position = 0;
-      let direction = 1;
-      
-      function bounceball() {
-      position += direction;
-      ball. Style. Bottom = position + 'px';
-      if (position >= window. Innerheight - 50 || position <= 0) {
-      direction *= -1;
-      }
-      requestanimationframe(bounceball);
-      }
-      
-      bounceball();
-      
-      </script>
       <button class="button-3" role="button" onclick="window.location.href='chapter-2.html';">Next Page</button>
       <button class="button-3" role="button" onclick="window.location.href='drawing.html';">Drawing</button>
       </body>
