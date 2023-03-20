@@ -13,8 +13,8 @@
 // Create a shortcut for a chrome application
 function createChromeAppShortcut {
   var appShortcut = {
-    "name": input("What is the app name?"),
-    "url": input("What is the app URL?"),
+    "name": prompt("What is the app name?"),
+    "url": prompt("What is the app URL?"),
     "type": "chrome_url_override",
     "description": "Shortcut to " + appName
   },
