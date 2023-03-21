@@ -1,26 +1,53 @@
-<!DOCTYPE html>
 
+<!-- HTML -->
 <html>
+  <head>
+    <title>ChatGPT</title>
+    <style>
+      #bot {
+        width: 500px;
+        height: 250px;
+        padding: 5px;
+        border: 1px solid lightgrey;
+        font-family: sans-serif;
+        margin-bottom: 10px;
+      }
+      #input {
+        width: 500px;
+        padding: 5px;
+        font-family: sans-serif;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="bot">
+      <p>Hey there! How can I help you today?</p>
+    </div>
+    <input type="text" id="input" />
+    <button id="submit">Submit</button>
+    <script>
+      //On clicking the submit button
+      document.getElementById("submit").addEventListener("click", function(){
+        let userInput = document.getElementById("input").value;
 
-<head>
-    <title>Chrome Desktop Shortcut Generator</title>
-</head>
-  <div>
-    <button onclick="createChromeAppShortcut">Create App</button>
-  </div>
+        //Send a request to the ChatGPT server and get a response
+        fetch('http://127.0.0.1:5000/query', {
+          method: 'POST',
+          body: '{"query": "' + userInput + '"}'
+        })
+        .then(res => res.json())
+        .then(res => {
+          //Take the response and render it as text in the chatbot's- window
+          let response = document.createElement('p');
+          response.innerHTML = res.response;
+          document.getElementById('bot').appendChild(response);
+        })
+        .catch(err => console.log(err));
+        //Clear the input field
+        document.getElementById("input").value = '';
+      });
 
-<script>
-// Create a shortcut for a chrome application
-function createChromeAppShortcut {
-  var appShortcut = {
-    "name": prompt("What is the app name?"),
-    "url": prompt("What is the app URL?"),
-    "type": "chrome_url_override",
-    "description": "Shortcut to " + appName
-  },
-  
-  chrome.management.createAppShortcut(appShortcut, function() {
-    console.log("Successfully created a shortcut for " + appName + "!");
-  }
-}
-</script>
+    </script>
+  </body>
+</html>
