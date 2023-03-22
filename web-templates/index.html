@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Website Templates</title>
+    <style>
+        #carousel {
+            width: 600px;
+            height: 400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        #carousel img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        #carousel img.active {
+            z-index: 1;
+        }
+
+        #carousel img.last-active {
+            z-index: 0;
+        }
+
+        nav {
+            text-align: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: #555;
+            background-color: #eee;
+        }
+
+        nav a.active {
+            color: #000;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" class="active">Slide 1</a>
+        <a href="#">Slide 2</a>
+        <a href="#">Slide 3</a>
+    </nav>
+    <div id="carousel">
+        <img src="gamelibrary.png" alt="slide 1" class="active">
+        <img src="slide2.jpg" alt="slide 2">
+        <img src="slide3.jpg" alt="slide 3">
+    </div>
+
+    <script>
+        var carousel = document.getElementById('carousel');
+        var slides = carousel.children;
+        var currentSlide = 0;
+        var nav = document.querySelectorAll('nav a');
+
+        nav[0].classList.add('active');
+
+        // Event listeners
+        nav.forEach(function (el, index) {
+            el.addEventListener('click', function (e) {
+                e.preventDefault();
+                // Remove active class from all nav links
+                nav.forEach(function (el) {
+                    el.classList.remove('active');
+                });
+
+                // Set active class to clicked link
+                this.classList.add('active');
+
+                // Set current slide
+                currentSlide = index;
+                // Update slider
+                updateSlide();
+            });
+        });
+
+        // Functions
+        function updateSlide() {
+            // Add last-active class to previously active slide
+            slides[currentSlide].classList.add('last-active');
+
+            // Remove active class from previously active slide
+            slides[currentSlide].classList.remove('active');
+
+            // Add active class to current slide
+            slides[currentSlide].classList.add('active');
+        }
+    </script>
+</body>
+</html>

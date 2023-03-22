@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+        background: linear-gradient(to left, orange, purple);
+        animation: gradient-animation 1s linear infinite;
+      }
+      .navbar {
+          background-color: black;
+          text-align: center;
+          border-radius: 10px; 
+      }
+
+      .navitem {
+        background-color: blue;
+        border-radius: 10px;
+        padding: 10px 15px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #FFFFFF
+      }
+      .navshadow {
+          background-color: blue
+      }
+      .navtitle {
+        color: blue;
+        font-weight: bold;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: black;
+      }
+
+      @keyframes gradient-animation {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <h1 class="navtitle">My Website Name</h1>
+      <br>
+      <button class="navitem" onclick="window.location.href = 'index.html';"">Home</button>
+      <button class="navitem" onclick="window.location.href = 'games.html';"">Games</button>
+      <button class="navitem" onclick="window.location.href = 'contact.html';"">Contact</button>
+    </div>
+  </body>
+</html>
