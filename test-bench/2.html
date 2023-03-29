@@ -1,8 +1,66 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Test Bench 1</title>
+        <title>Memeify</title>
+        <style>
+            body {
+                background-color: antiquewhite;
+            }
+        </style>
     </head>
     <body>
+        <h1>Meme Generator</h1>
+        <div>
+            <p>Upload an image:</p>
+            <input type="file" id="image">
+        </div>
+    
+        <div>
+            <p>Top Text:</p>
+            <input type="text" id="topText">
+        </div>
+    
+        <div>
+            <p>Bottom Text:</p>
+            <input type="text" id="bottomText">
+        </div>
+        <button type="button" id="generateButton">Generate Meme</button>
+    
+        <div>
+            <img src="" id="memeImage">
+        </div>
+    
+        <script>
+            const generateButton = document.getElementById('generateButton');
+            const memeImage = document.getElementById('memeImage');
+            const image = document.getElementById('image');
+            const topText = document.getElementById('topText');
+            const bottomText = document.getElementById('bottomText');
+    
+            generateButton.addEventListener('click', () => {
+                const imageSrc = image.files[0];
+                memeImage.src = URL.createObjectURL(imageSrc);
+                const topTextString = topText.value;
+                const bottomTextString = bottomText.value;
+    
+                memeImage.onload = () => {
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.width = memeImage.width;
+                    canvas.height = memeImage.height;
+                    context.drawImage(memeImage, 0, 0);
+    
+                    context.font = '30px Impact';
+                    context.textAlign = 'center';
+                    context.fillStyle = 'white';
+                    context.fillText(topTextString, canvas.width / 2, 40);
+                    context.fillText(bottomTextString, canvas.width / 2, canvas.height - 20);
+                    context.fillText()
+    
+                    memeImage.src = canvas.toDataURL();
+    
+                }
+            });
+        </script>
     </body>
-</html>
+    </html>
