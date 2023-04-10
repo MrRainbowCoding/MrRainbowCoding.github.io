@@ -1,66 +1,51 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Memeify</title>
-        <style>
-            body {
-                background-color: antiquewhite;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Meme Generator</h1>
-        <div>
-            <p>Upload an image:</p>
-            <input type="file" id="image">
-        </div>
-    
-        <div>
-            <p>Top Text:</p>
-            <input type="text" id="topText">
-        </div>
-    
-        <div>
-            <p>Bottom Text:</p>
-            <input type="text" id="bottomText">
-        </div>
-        <button type="button" id="generateButton">Generate Meme</button>
-    
-        <div>
-            <img src="" id="memeImage">
-        </div>
-    
-        <script>
-            const generateButton = document.getElementById('generateButton');
-            const memeImage = document.getElementById('memeImage');
-            const image = document.getElementById('image');
-            const topText = document.getElementById('topText');
-            const bottomText = document.getElementById('bottomText');
-    
-            generateButton.addEventListener('click', () => {
-                const imageSrc = image.files[0];
-                memeImage.src = URL.createObjectURL(imageSrc);
-                const topTextString = topText.value;
-                const bottomTextString = bottomText.value;
-    
-                memeImage.onload = () => {
-                    const canvas = document.createElement('canvas');
-                    const context = canvas.getContext('2d');
-                    canvas.width = memeImage.width;
-                    canvas.height = memeImage.height;
-                    context.drawImage(memeImage, 0, 0);
-    
-                    context.font = '30px Impact';
-                    context.textAlign = 'center';
-                    context.fillStyle = 'white';
-                    context.fillText(topTextString, canvas.width / 2, 40);
-                    context.fillText(bottomTextString, canvas.width / 2, canvas.height - 20);
-                    context.fillText()
-    
-                    memeImage.src = canvas.toDataURL();
-    
-                }
-            });
-        </script>
-    </body>
-    </html>
+  <head>
+    <title>Memeify</title>
+    <style>
+      body {
+        font-family: Impact;
+        text-align: center;
+        background-color: antiquewhite;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Memeify</h1>
+    <form>
+      <input type="file" id="image-input" />
+      <input type="text" id="top-text" placeholder="Top text" />
+      <input type="text" id="bottom-text" placeholder="Bottom text" />
+      <input type="button" onclick="generateMeme()" value="Generate Meme" />
+    </form>
+    <div>
+      <img id="meme" />
+    </div>
+    <script>
+      function generateMeme() {
+        const image = document.getElementById('image-input').files[0];
+        const topText = document.getElementById('top-text').value;
+        const bottomText = document.getElementById('bottom-text').value;
+
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const imageElement = new Image();
+        imageElement.src = URL.createObjectURL(image);
+        imageElement.onload = () => {
+          canvas.height = imageElement.height;
+          canvas.width = imageElement.width;
+          ctx.drawImage(imageElement, 0, 0);
+          ctx.fillStyle = "white";
+          ctx.fillRect(0, 0, canvas.width, 30);
+          ctx.fillRect(0, canvas.height - 30, canvas.width, 30);
+          ctx.fillStyle = "black";
+          ctx.font = "30px Impact";
+          ctx.textAlign = "center";
+          ctx.fillText(topText, canvas.width / 2, 28);
+          ctx.fillText(bottomText, canvas.width / 2, canvas.height - 5);
+          document.getElementById('meme').src = canvas.toDataURL();
+        };
+      }
+    </script>
+  </body>
+</html>
