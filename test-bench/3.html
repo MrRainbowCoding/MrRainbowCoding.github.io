@@ -1,9 +1,47 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Test Bench 3</title>
+    <title>Base64 Decryptor</title>
     <style>
-        /* Nothing here yet. Waiting for a test. */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: antiquewhite;
+        }
+        #input-text {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid black;
+        }
+        #output-text {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid black;
+        }
     </style>
 </head>
+
+<body>
+    <h1>Base64 Decryptor</h1>
+    <p>Enter the Base64 string to be decrypted:</p>
+    <input type="text" id="input-text" />
+    <br />
+    <button onclick="decrypt();">Decrypt</button>
+    <br />
+    <p>Decrypted string:</p>
+    <input type="text" id="output-text" readonly />
+    <script>
+        function decrypt() {
+            let inputText = document.querySelector('#input-text').value;
+            let outputText = atob(inputText);
+            document.querySelector('#output-text').value = outputText;
+        }
+    </script>
+</body>
+
 </html>
