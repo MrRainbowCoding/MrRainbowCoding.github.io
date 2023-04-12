@@ -2,12 +2,11 @@
 <html>
 
 <head>
-    <title>Base64 Decryptor</title>
+    <title>Base64 Encryptor/Decryptor</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: antiquewhite;
         }
         #input-text {
             margin: auto;
@@ -23,19 +22,29 @@
             font-size: 16px;
             border: 1px solid black;
         }
+        button {
+            border-radius: 5px;
+        }
     </style>
 </head>
 
 <body>
-    <h1>Base64 Decryptor</h1>
-    <p>Enter the Base64 string to be decrypted:</p>
+    <h1>Base64 Encryptor/Decryptor</h1>
+    <p>Enter the string to be encrypted/decrypted:</p>
     <input type="text" id="input-text" />
     <br />
+    <button onclick="encrypt();">Encrypt</button>
     <button onclick="decrypt();">Decrypt</button>
     <br />
-    <p>Decrypted string:</p>
+    <p>Encrypted/Decrypted string:</p>
     <input type="text" id="output-text" readonly />
     <script>
+        function encrypt() {
+            let inputText = document.querySelector('#input-text').value;
+            let outputText = btoa(inputText);
+            document.querySelector('#output-text').value = outputText;
+        }
+
         function decrypt() {
             let inputText = document.querySelector('#input-text').value;
             let outputText = atob(inputText);
